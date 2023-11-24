@@ -16,11 +16,13 @@ const Signup = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
+  // on submit of the sign up form 
   const handleSignup = async(e) =>{
     e.preventDefault();
     try {
       const response = await signUp(formData);
       setSignupMessage(response.message);
+      // to clear the form field after submission 
       setFormData({
         email:'',
         username:'',
@@ -36,6 +38,7 @@ const Signup = () => {
     <Nav />
     <div className='duple-user'>
     <h1>Sign Up</h1>
+    {/* Error Handling  */}
     {signupMessage && <p className='message'>{signupMessage}</p>}
     <form className='duple-form' onSubmit={handleSignup}>
         <div>

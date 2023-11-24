@@ -20,11 +20,13 @@ const Signin = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
+  // On submit of the form
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
       const response = await signIn(formData, dispatch);
       setSignInMessage(response.message); 
+      // After successful sign in it will navigate to home page 
       navigate('/home');
     } catch (error) {
       setSignInMessage(error.message);
@@ -36,6 +38,7 @@ const Signin = () => {
     <Nav />
       <div className='duple-user'>
         <h1>Sign In</h1>
+        {/* Error Handling  */}
         {signInMessage && <p className='message'>{signInMessage}</p>}
         <form className='duple-form' onSubmit={handleSignIn}>
           <div>
