@@ -1,11 +1,8 @@
 import React, {useState} from 'react'
-import {useDispatch} from  'react-redux'
 import { signUp } from '../actions/authActions';
 import Nav from './Nav'
 
 const Signup = () => {
-
-  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     username: '',
